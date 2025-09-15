@@ -47,12 +47,51 @@ public class BST {
 
 
     public void insert(int item) {
+        if (this.isEmpty()){
+            this.root = item;
+            this.left = new BST();
+            this.right = new BST();
+        }
+        else if (item <= this.root){
+            this.left.insert(item);
+        }
+        else{
+            this.right.insert(item);
+        }
 
+//        if self.is_empty():
+//            # Make new leaf.
+//            # Note that self._left and self._right cannot be None when the
+//            # tree is non-empty! (This is one of our invariants.)
+//        self._root = item
+//        self._left = BST(None)
+//        self._right = BST(None)
+//        elif item <= self._root:
+//        self._left.insert(item)
+//        else:
+//        self._right.insert(item)
     }
 
 
     public void delete(int item) {
-
+        if (this.isEmpty()) {}
+        else if (item == this.root) {
+            this.deleteRoot();
+        }
+        else if (item < this.root) {
+            this.left.delete(item);
+        }
+        else{
+            this.right.delete(item);
+        }
+//        if self.is_empty():
+//        pass
+//        elif self._root == item:
+//        self.delete_root()
+//        elif item < self._root:
+//        self._left.delete(item)
+//        else:
+//        self._right.delete(item)
     }
 
     private void deleteRoot() {
